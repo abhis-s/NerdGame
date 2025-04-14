@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="NerdGame.BinaryInputControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NerdGame"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="1200">
+    <Border BorderThickness="1"
+        BorderBrush="{DynamicResource BorderBrushPrimary}"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        Padding="10"
+        CornerRadius="6">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ToggleButton x:Name="Bit7" Grid.Column="0" Style="{StaticResource BitToggleStyle}" Content="0" FontSize="20"
+              Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+            <ToggleButton x:Name="Bit6" Grid.Column="1" Style="{StaticResource BitToggleStyle}" Content="0" FontSize="20"
+              Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+            <ToggleButton x:Name="Bit5" Grid.Column="2" Style="{StaticResource BitToggleStyle}" Content="0" FontSize="20"
+              Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+            <ToggleButton x:Name="Bit4" Grid.Column="3" Style="{StaticResource BitToggleStyle}" Content="0" FontSize="20"
+              Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+            <ToggleButton x:Name="Bit3" Grid.Column="4" Style="{StaticResource BitToggleStyle}" Content="0" FontSize="20"
+              Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+            <ToggleButton x:Name="Bit2" Grid.Column="5" Style="{StaticResource BitToggleStyle}" Content="0" FontSize="20"
+              Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+            <ToggleButton x:Name="Bit1" Grid.Column="6" Style="{StaticResource BitToggleStyle}" Content="0" FontSize="20"
+              Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+            <ToggleButton x:Name="Bit0" Grid.Column="7" Style="{StaticResource BitToggleStyle}" Content="0" FontSize="20"
+              Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+
+            <Label x:Name="HexDisplay" Grid.Column="8" Grid.ColumnSpan="2" FontSize="20"
+       VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+       Content="0x00" Foreground="{DynamicResource TextBrush}"/>
+        </Grid>
+    </Border>
+</UserControl>
