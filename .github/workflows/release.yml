@@ -1,0 +1,40 @@
+name: Release NerdGame
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up .NET SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build using MSBuild for WPF (x86)
+      run: msbuild NerdGame.csproj /p:Configuration=Release /p:Platform="x86"
+
+    - name: Publish project
+      run: dotnet publish -c Release -o ./publish
+
+    - name: Create zip from publish folder
+      run: Compress-Archive -Path ./publish/* -DestinationPath NerdGame.zip
+
+    - name: Upload release asset
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ github.ref_name }}
+        name: Release ${{ github.ref_name }}
+        files: NerdGame.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
